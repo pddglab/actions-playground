@@ -14,6 +14,9 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT" | jq . | tee event.json
+      - name: must be failed when merge_group
+        if: github.event_name == 'merge_group'
+        run: exit 1
   next:
     needs: build
     runs-on: ubuntu-latest
