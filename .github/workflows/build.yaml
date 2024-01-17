@@ -7,6 +7,10 @@ on:
   merge_group:
 
 jobs:
+  reusable:
+    uses: pddglab/actions-playground/.github/workflows/sample_reusable.yaml@main
+    with:
+      value: "hello world"
   build:
     runs-on: ubuntu-latest
     steps:
